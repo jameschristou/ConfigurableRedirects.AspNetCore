@@ -17,6 +17,7 @@ namespace ConfigurableRedirects.AspNetCore
 
             services.AddTransient<IRedirectLogger, RedirectLogger>();
             services.AddScoped<IRedirectService, RedirectService>();
+            services.AddSingleton<IRedirectConfigProvider, RedirectConfigProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
