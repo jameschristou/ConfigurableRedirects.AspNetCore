@@ -13,6 +13,10 @@ namespace ConfigurableRedirects.AspNetCore.Infrastructure.Routes
                             new { controller = "Redirect", action = "Redirect" },
                             new { url = new ConfigBasedRedirectRouteConstraint() }
                             );
+
+            routeBuilder.MapControllerRoute(
+                            name: "default",
+                            pattern: "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

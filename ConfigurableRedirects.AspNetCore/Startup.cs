@@ -14,6 +14,7 @@ namespace ConfigurableRedirects.AspNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddRazorPages();
 
             services.AddTransient<IRedirectLogger, RedirectLogger>();
             services.AddScoped<IRedirectService, RedirectService>();

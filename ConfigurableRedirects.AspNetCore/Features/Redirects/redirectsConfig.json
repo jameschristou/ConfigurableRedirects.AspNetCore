@@ -4,7 +4,7 @@
       "ruleType": "regex",
       "name": "testPath",
       "matchRule": "\\/test-path\\/(.*)?",
-      "redirectInstruction": "\\/new-destination\\/",
+      "redirectInstruction": "\\/home\\/",
       "includeQueryStringInRedirect": true,
       "description": "Used for redirecting any path that starts with /test-path/ to /new-desination/"
     }

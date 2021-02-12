@@ -14,7 +14,7 @@ namespace ConfigurableRedirects.AspNetCore.Features.Redirects
 
         public bool CurrentRequestRequiresRedirect()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public RedirectInstruction GetRedirect()
