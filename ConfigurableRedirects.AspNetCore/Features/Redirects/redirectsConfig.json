@@ -1,10 +1,10 @@
 {
   "redirects": [
     {
-      "ruleType": "regex",
+      "ruleType": "Regex",
       "name": "testPath",
       "matchRule": "\\/test-path\\/(.*)?",
-      "redirectInstruction": "\\/home\\/",
+      "redirectInstruction": "/",
       "includeQueryStringInRedirect": true,
       "description": "Used for redirecting any path that starts with /test-path/ to /new-desination/"
     }

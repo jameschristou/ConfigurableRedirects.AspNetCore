@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ConfigurableRedirects.AspNetCore.Features.Redirects
 {
@@ -34,7 +35,7 @@ namespace ConfigurableRedirects.AspNetCore.Features.Redirects
 
         private void Init()
         {
-            var fullpath = Path.Combine($"{_hostingEnvironment.ContentRootPath}/Features/Redirects/redirectsConfig.json");
+            var fullpath = Path.Combine($"{_hostingEnvironment.ContentRootPath}\\Features\\Redirects\\redirectsConfig.json");
 
             if (!File.Exists(fullpath))
             {
@@ -43,7 +44,10 @@ namespace ConfigurableRedirects.AspNetCore.Features.Redirects
             }
 
             var content = File.ReadAllText(fullpath);
-            var config = JsonSerializer.Deserialize<RedirectConfigDto>(content);
+            var config = JsonSerializer.Deserialize<RedirectConfigDto>(content, new JsonSerializerOptions { 
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)}
+            });
 
             _redirects = config.Redirects;
         }

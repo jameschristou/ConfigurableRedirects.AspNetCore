@@ -2,6 +2,7 @@ using ConfigurableRedirects.AspNetCore.Features.Redirects;
 using ConfigurableRedirects.AspNetCore.Infrastructure.Routes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -19,6 +20,8 @@ namespace ConfigurableRedirects.AspNetCore
             services.AddTransient<IRedirectLogger, RedirectLogger>();
             services.AddScoped<IRedirectService, RedirectService>();
             services.AddSingleton<IRedirectConfigProvider, RedirectConfigProvider>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<RegexRedirectProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
